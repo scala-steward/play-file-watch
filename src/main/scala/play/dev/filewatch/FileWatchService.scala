@@ -84,7 +84,7 @@ object FileWatchService {
     new FileWatchService {
       lazy val delegate = os match {
         // If Windows or Linux, use JDK7 Watch Service (assume JDK7+)
-        case (Windows | Linux) => jdk7(logger, disableFileHashCheck)
+        case Windows | Linux => jdk7(logger, disableFileHashCheck)
         // If mac OS, use the mac implementation
         case Mac =>
           try mac(logger, disableFileHashCheck)
